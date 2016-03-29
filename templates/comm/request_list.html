@@ -1,0 +1,37 @@
+<div>
+Project: <a href="{{ project.url }}">{{ project.name }}</a>
+</div>
+
+<div>
+  <div>
+    {% for request in requests %}
+    <div>
+      <div>
+        {{ request.title }} - {{ request.author }}
+      </div>
+      <div>
+        {{ request.body }}
+      </div>
+      <div>
+        {% for comment in request.comment_set.all %}
+        <div>
+        {{ comment.body }}
+        </div>
+        {% endfor %}
+        <div>
+        <form method="post" action="{% url 'comm:new_comment' request.id %}">
+          {% csrf_token %}
+          {{ comment_forms.body }}
+          <button type="submit" value="submit">Comment</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <form method="post">
+      {% csrf_token %}
+      {{ create_form.as_p }}
+      <button type="submit" value="submit">Post Request</button>
+    </form>
+  </div>
+</div>

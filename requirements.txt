@@ -1,0 +1,31 @@
+Django==1.9.4
+
+#Authentication
+psycopg2==2.4.5
+python-ldap==2.4.25
+git+ssh://git@git.techops.cmich.edu/developer/django-ad-auth.git@1.8_migrations
+
+#Deployment
+gunicorn==0.14.3
+wsgiref==0.1.2
+Fabric==1.10.0
+nose==1.3.4
+django-nose==1.3
+
+#Other
+redis==2.4.13
+git+ssh://git@git.techops.cmich.edu/developer/techops-fab.git
+simplejson==3.0.7
+requests==2.7.0
+Pillow==3.1.0
+pep8==1.6.2
+
+#If you get an issue with python-ldap, temperarily remove python-ldap from
+#   this file (MAKE SURE YOU COPY IT SO YOU CAN PUT IT BACK IN LATER) and run the following:
+
+#pip install python-ldap \
+#   --global-option=build_ext \
+#   --global-option="-I$(xcrun --show-sdk-path)/usr/include/sasl"
+
+#Then, with ldap still not in requirements, install requirements again
+#now put ldap back in this file.
