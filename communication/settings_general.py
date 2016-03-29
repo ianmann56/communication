@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'comm',
+    'direct_messaging',
     'gunicorn',
 ]
 
